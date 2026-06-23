@@ -6,11 +6,14 @@ build-backend = "hatchling.build"
 name = "tariff-extractor"
 version = "0.1.0"
 description = "Extract, validate, and compute benchmark bills from water utility rate documents"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "openai>=1.0",
     "jsonschema>=4.0",
 ]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.30"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["tariff_extractor"]

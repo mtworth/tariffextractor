@@ -59,6 +59,24 @@ for line in bill_explanation(tariff):
     print(line)
 ```
 
+## Playground (Streamlit)
+
+A wizard-style app for trying the pipeline interactively: upload a rate document, then step through extraction → validation → benchmark bill, with the raw output of every stage shown and editable.
+
+```bash
+pip install -e ".[app]"
+streamlit run streamlit_app.py
+```
+
+If install fails trying to build `pyarrow` from source (missing Arrow/CMake toolchain), force binary wheels instead:
+
+```bash
+pip install --only-binary=:all: "streamlit>=1.30"
+pip install -e .
+```
+
+You'll be prompted for your own API key, base URL, and model in the sidebar (nothing is stored or sent anywhere except your chosen provider). At each step you can edit the JSON before moving on, to see how validation or bill calculation react to changes.
+
 ## Output format
 
 The `extract()` function returns a tariff dict conforming to [`tariff_extractor/schema/tariff.schema.json`](tariff_extractor/schema/tariff.schema.json). Key fields:
