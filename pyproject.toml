@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tariff-extractor"
+version = "0.1.0"
+description = "Extract, validate, and compute benchmark bills from water utility rate documents"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.0",
+    "jsonschema>=4.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["tariff_extractor"]
+
+[tool.hatch.build.targets.wheel.sources]
+"tariff_extractor/schema" = "tariff_extractor/schema"

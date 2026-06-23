@@ -1,0 +1,18 @@
+{
+  "utility_name": "Example Tiered Water District",
+  "effective_date": "2024-01-01",
+  "bill_frequency": "monthly",
+  "unit": "ccf",
+  "customer_class": "residential",
+  "meter_size": "3/4\"",
+  "fixed_charge": 14.65,
+  "volumetric": {
+    "type": "tiered",
+    "tiers": [
+      { "from": 0, "to": 15, "price": 2.87 },
+      { "from": 15, "to": 41, "price": 4.29 },
+      { "from": 41, "to": 149, "price": 6.44 },
+      { "from": 149, "to": null, "price": 10.07 }
+    ]
+  }
+}

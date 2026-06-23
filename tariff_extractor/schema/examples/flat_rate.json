@@ -1,0 +1,15 @@
+{
+  "utility_name": "Alameda County Water District",
+  "effective_date": "2018-03-01",
+  "bill_frequency": "bimonthly",
+  "unit": "ccf",
+  "customer_class": "residential",
+  "meter_size": "5/8\"",
+  "fixed_charge": 52.33,
+  "volumetric": {
+    "type": "flat",
+    "tiers": [
+      { "from": 0, "to": null, "price": 4.249 }
+    ]
+  }
+}

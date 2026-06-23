@@ -1,0 +1,16 @@
+{
+  "utility_name": "Example Seasonal Water District",
+  "effective_date": "2024-07-01",
+  "bill_frequency": "monthly",
+  "unit": "ccf",
+  "customer_class": "residential",
+  "meter_size": "5/8\"",
+  "fixed_charge": 18.50,
+  "volumetric": {
+    "type": "seasonal_flat",
+    "tiers": [
+      { "from": 0, "to": null, "price": 2.50, "season": "winter" },
+      { "from": 0, "to": null, "price": 3.10, "season": "summer" }
+    ]
+  }
+}

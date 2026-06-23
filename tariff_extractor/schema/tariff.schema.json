@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tariff Primitives",
+  "type": "object",
+  "required": ["utility_name", "customer_class", "volumetric"],
+  "additionalProperties": false,
+  "properties": {
+    "utility_name": { "type": "string" },
+    "effective_date": { "type": ["string", "null"] },
+    "bill_frequency": {
+      "type": ["string", "null"],
+      "enum": ["monthly", "bimonthly", "quarterly", null]
+    },
+    "unit": {
+      "type": ["string", "null"],
+      "enum": ["ccf", "kgal", "gal", null]
+    },
+    "customer_class": { "type": "string" },
+    "meter_size": { "type": ["string", "null"] },
+    "zone": { "type": "string" },
+    "has_multiple_zones": { "type": "boolean" },
+    "has_income_based_pricing": { "type": "boolean" },
+    "fixed_charge": { "type": ["number", "null"] },
+    "volumetric": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["tiered", "flat", "seasonal_flat"]
+        },
+        "tiers": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "object",
+            "required": ["from", "price"],
+            "additionalProperties": false,
+            "properties": {
+              "from": { "type": "number" },
+              "to": { "type": ["number", "null"] },
+              "price": { "type": "number" },
+              "season": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "seasonal": {
+          "type": ["object", "null"],
+          "additionalProperties": { "type": "number" }
+        }
+      }
+    }
+  }
+}
