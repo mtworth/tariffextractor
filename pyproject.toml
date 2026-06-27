@@ -12,9 +12,6 @@ dependencies = [
     "jsonschema>=4.0",
 ]
 
-[project.optional-dependencies]
-app = ["streamlit>=1.30"]
-
 [tool.hatch.build.targets.wheel]
 packages = ["tariff_extractor"]
 

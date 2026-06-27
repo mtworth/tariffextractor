@@ -59,23 +59,9 @@ for line in bill_explanation(tariff):
     print(line)
 ```
 
-## Playground (Streamlit)
+## Try it
 
-A step-by-step wizard for trying the pipeline interactively: configure & upload → extraction → validation → benchmark bill → results, with the raw output of every stage shown and editable.
-
-```bash
-pip install -e ".[app]"
-streamlit run main.py
-```
-
-If install fails trying to build `pyarrow` from source (missing Arrow/CMake toolchain), force binary wheels instead:
-
-```bash
-pip install --only-binary=:all: "streamlit>=1.30"
-pip install -e .
-```
-
-You bring your own API key, base URL, and model (entered in step 1 — nothing is stored or sent anywhere except your chosen provider). At each step you can edit the JSON before moving on, to see how validation or bill calculation react to changes.
+An interactive extractor is available at [whatwatercosts.org/extractor](https://whatwatercosts.org/extractor) — upload a rate PDF or paste HTML and step through extraction, validation, and benchmark bill calculation in your browser.
 
 ## Output format
 
